@@ -8,7 +8,6 @@ export const Login = () => {
         <input className="auth__input" autoComplete="off"  type="text" placeholder="Email" name="email" />
         <input className="auth__input" type="password" placeholder="Password" name="password" />
         <button type="submit"  className="btn btn-primary btn-block">Login</button>
-        <hr />
         <div className="auth__social-networks">
           Google auth
           <div className="google-btn">
@@ -25,7 +24,7 @@ export const Login = () => {
           </div>
         </div>
 
-        <Link to="/auth/register">
+        <Link to="/auth/register" className="link">
           Create new account
         </Link>
       </form>
