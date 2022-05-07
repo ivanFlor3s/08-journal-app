@@ -15,3 +15,43 @@
     padding: 20px;
     width: 250px;
 }
+
+.auth__title{
+    //Funcion para oscurecer un color
+    color: darken($color: $primary, $amount:20)
+}
+
+.auth__input{
+    color: $dark-grey;
+    border: 0;
+    border-bottom: 1px solid $light-grey;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 20px;
+    width: 100%;
+
+    transition: border-bottom 1s ease;
+    &:focus{
+        outline: none;
+        border-bottom: 2px solid $primary;
+    }
+}
+
+.auth__social-networks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.auth__alert-error{
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 5px;
+
+}
