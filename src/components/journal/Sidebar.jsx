@@ -1,3 +1,4 @@
+import { JournalEntries } from "./JournalEntries";
 export const Sidebar = () => {
   return (
     <aside className="journal__sidebar">
@@ -15,6 +16,8 @@ export const Sidebar = () => {
         </i>
         <p className="mt-5">New entry</p>
       </div>
+
+      <JournalEntries></JournalEntries>
     </aside>
   );
 };
