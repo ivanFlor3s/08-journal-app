@@ -1,13 +1,51 @@
 import { Link } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { useDispatch } from "react-redux";
+import { login } from "../../actions/auth";
 
 export const Login = () => {
+
+  const dispatch = useDispatch();
+
+  const [formValues, handleInputChange] = useForm({
+    email: "aldo@gmail.com",
+    password: "123456",
+  });
+
+
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    console.log("object :>> ", email, password);
+    dispatch(login(12345,'Ivanardo'))
+  };
+
+  const { email, password } = formValues;
+
   return (
     <>
       <h3 className="auth__title">Login</h3>
-      <form>
-        <input className="auth__input" autoComplete="off"  type="text" placeholder="Email" name="email" />
-        <input className="auth__input" type="password" placeholder="Password" name="password" />
-        <button type="submit"  className="btn btn-primary btn-block">Login</button>
+      <form onSubmit={handleLogin}>
+        <input
+          className="auth__input"
+          autoComplete="off"
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={handleInputChange}
+        />
+        <input
+          className="auth__input"
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={password}
+          onChange={handleInputChange}
+        />
+        <button type="submit" className="btn btn-primary btn-block">
+          Login
+        </button>
         <div className="auth__social-networks">
           Google auth
           <div className="google-btn">
