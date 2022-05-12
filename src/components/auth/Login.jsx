@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from "react-redux";
-import { login } from "../../actions/auth";
+import { login, startLoginEmailPassword } from "../../actions/auth";
 
 export const Login = () => {
 
@@ -17,7 +17,7 @@ export const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     console.log("object :>> ", email, password);
-    dispatch(login(12345,'Ivanardo'))
+    dispatch(startLoginEmailPassword(email,password))
   };
 
   const { email, password } = formValues;
