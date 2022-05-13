@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useDispatch } from "react-redux";
-import { login, startLoginEmailPassword } from "../../actions/auth";
+import {  startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
 
 export const Login = () => {
 
@@ -13,6 +13,9 @@ export const Login = () => {
   });
 
 
+  const handleGoogleSignIn = ()=>{
+    dispatch(startGoogleLogin())
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -48,7 +51,7 @@ export const Login = () => {
         </button>
         <div className="auth__social-networks">
           Google auth
-          <div className="google-btn">
+          <div className="google-btn" onClick={handleGoogleSignIn}>
             <div className="google-icon-wrapper">
               <img
                 className="google-icon"
