@@ -18,6 +18,7 @@ export const NoteScreen = () => {
         ></textarea>
         <div className="notes__image">
           <img
+          className="notes__image__img"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5HfYHmqkZPU9ImjiYjUMIsK94eaDaQ364fg&usqp=CAU"
             alt="imagen-note"
           />

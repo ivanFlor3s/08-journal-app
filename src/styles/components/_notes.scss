@@ -46,4 +46,10 @@
 
 .notes__image img{
     box-shadow: 5px 5px 4px $dark-grey;
+    transition: .3s all ease;
+}
+
+.notes__image img:hover{
+    transform: scale(1.01);
+
 }
