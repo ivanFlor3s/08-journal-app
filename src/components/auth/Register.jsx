@@ -4,7 +4,7 @@ import { useForm } from "../../hooks/useForm";
 import validator from "validator";
 import { useDispatch, useSelector } from "react-redux";
 import { removeError, setError } from "../../actions/ui";
-import {types} from '../../types/types'
+import { startEmailRegister } from "../../actions/auth";
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const Register = () => {
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      console.log(formValues);
+      dispatch(startEmailRegister(email, password,name))
     }
   };
 
