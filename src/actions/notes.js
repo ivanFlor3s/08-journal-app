@@ -44,3 +44,8 @@ const activeNote = (id, note)=>({
     payload: {id,...note}
 })
 
+export const setNotes = (notes)=>({
+    type: types.notesLoad,
+    payload: notes
+})
+
