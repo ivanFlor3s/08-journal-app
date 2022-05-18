@@ -12,17 +12,22 @@
  * }
  */
 
-const initialState= {
-    notes:[],
-    active: null
-}
+import { types } from "../types/types";
 
-export const notesReducer = (state=initialState, action)=>{
-    switch (action.type) {
-       
-    
-        default:
-            return state;
-    }
+const initialState = {
+  notes: [],
+  active: null,
+};
 
-}
+export const notesReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.notesActive:
+      return {
+        ...state,
+        active: { ...action.payload },
+      };
+
+    default:
+      return state;
+  }
+};
