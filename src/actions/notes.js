@@ -47,7 +47,7 @@ export const startLoadingNotes= (uid)=>{
     }
 }
 
-const activeNote = (id, note)=>({
+export const activeNote = (id, note)=>({
     type: types.notesActive,
     payload: {id,...note}
 })
