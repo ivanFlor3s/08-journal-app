@@ -3,6 +3,8 @@ import { db } from "../firebase/firebase.config"
 import { types } from "../types/types"
 import {loadNotes} from '../helpers/loadNotes'
 
+import Swal from "sweetalert2"
+
 /*
  CAMBIO EN REGLAS FIREBASE
     rules_version = '2';
@@ -71,7 +73,18 @@ export const startSaveNote = (note)=>{
 
         await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
 
-        dispatch()
+        dispatch(refresNote(note.id, note))
+        Swal.fire('Saved', note.title, 'success')
     }
 }
+
+export const refresNote = (id, note)=>({
+    type: types.notesUpdated,
+    payload: {
+        id,
+        note:{
+            id, ...note
+        }
+    }
+})
 
