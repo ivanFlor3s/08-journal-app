@@ -58,7 +58,7 @@ export const NoteScreen = () => {
         <div className="notes__image">
           <img
           className="notes__image__img"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5HfYHmqkZPU9ImjiYjUMIsK94eaDaQ364fg&usqp=CAU"
+            src={note.url}
             alt="imagen-note"
           />
         </div>}

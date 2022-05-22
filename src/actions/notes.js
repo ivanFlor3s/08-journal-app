@@ -4,6 +4,7 @@ import { types } from "../types/types"
 import {loadNotes} from '../helpers/loadNotes'
 
 import Swal from "sweetalert2"
+import { fileUpload } from "../helpers/fileUpload"
 
 /*
  CAMBIO EN REGLAS FIREBASE
@@ -84,7 +85,33 @@ export const refresNote = (id, note)=>({
         id,
         note:{
             id, ...note
-        }
+    }
     }
 })
 
+export const startUploadImg = (file)=>{
+    console.log(file)
+    return async ( dispatch, getState )=>{
+
+        const {active: activeNote} = getState().notes;
+
+        Swal.fire({
+            title:'Uplaoding',
+            text:'Please wait...',
+            allowOutsideClick: false,
+            
+        })
+        Swal.showLoading()
+
+        const fileUrl = await fileUpload(file)
+
+        
+        // dispatch(startSaveNote(activeNote))
+
+        const updatedNote = {...activeNote, url:fileUrl}
+
+        dispatch(startSaveNote(updatedNote))
+
+        Swal.close()
+    }
+}
