@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { NotesAppBar } from "./NotesAppBar";
-import { activeNote } from "../../actions/notes";
+import { activeNote, startDeleting } from "../../actions/notes";
 
 export const NoteScreen = () => {
 
@@ -18,6 +18,10 @@ export const NoteScreen = () => {
   //uso useRef para tener el id de la nota
   //USE REF almaceno una variable mutable que no va a redibujar el componente si cambia
   const activeId = useRef(note.id)
+
+  const handleDelete = ()=>{
+    dispatch(startDeleting(activeId.current))
+  }
 
   useEffect(()=>{
     //Solo disparar el reset cuando cambia el note.id
@@ -63,6 +67,9 @@ export const NoteScreen = () => {
           />
         </div>}
       </div>
+      <button className="btn btn-danger" onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 };
