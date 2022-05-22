@@ -42,7 +42,6 @@ export const notesReducer = (state = initialState, action) => {
       };
 
     case types.notesDelete:
-      console.log(state.notes,action.payload.id   )
       return {
         ...state,
         active: null,
@@ -50,7 +49,12 @@ export const notesReducer = (state = initialState, action) => {
           note.id !== action.payload.id 
         ),
       };
-
+    case types.notesLogoutCleaning:
+      return {
+        ...state,
+        active: null,
+        notes: []
+      };
     default:
       return state;
   }
